@@ -58,7 +58,6 @@ public abstract class AbstractPiece implements Pieces{
     @Override
     public abstract boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk, boolean isCastlingPossible);
     
-    /*
     public static void main(String args[]){
         Pion pion = new Pion(Couleur.BLANC, new Coord(4,5));
         System.out.println(pion.isMoveOk(4, 4, true, true));
@@ -114,5 +113,4 @@ public abstract class AbstractPiece implements Pieces{
         System.out.println(reine.isMoveOk(9, 5, true, true)); // not ok (outside of board)
         System.out.println(reine.isMoveOk(4, 5, true, true)); // not ok (sur place)
     }
-    */
 }
