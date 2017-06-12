@@ -25,7 +25,9 @@ public interface Game  {
 	 * @param yInit
 	 * @param xFinal
 	 * @param yFinal
-	 * @return true si  piece du jeu peut être déplacée aux coordonnées finales,
+         * @param isCatchOk
+         * @param isCastlingPossible
+	 * @return true si une piece du jeu peut être déplacée aux coordonnées finales,
 	 *  false sinon
 	 */
 	public boolean isMoveOk(int xInit, int yInit, int xFinal, int yFinal, boolean isCatchOk,

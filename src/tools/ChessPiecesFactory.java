@@ -26,7 +26,7 @@ public class ChessPiecesFactory {
 
 	/**
 	 * @param pieceCouleur
-	 * @return liste de pi�ces de jeu d'�chec
+	 * @return liste de pièces de jeu d'échec
 	 */
 	public static List<Pieces> newPieces(Couleur pieceCouleur){
 
