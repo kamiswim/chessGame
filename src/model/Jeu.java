@@ -78,12 +78,16 @@ public class Jeu implements Game{
 
     @Override
     public boolean isMoveOk(int xInit, int yInit, int xFinal, int yFinal, boolean isCatchOk, boolean isCastlingPossible) {
-        return this.findPiece(xInit, yInit).isMoveOk(xFinal, yFinal, isCatchOk, isCastlingPossible);
+        if(this.isPieceHere(xInit, yInit))
+            return this.findPiece(xInit, yInit).isMoveOk(xFinal, yFinal, isCatchOk, isCastlingPossible);
+        return false;
     }
 
     @Override
     public boolean move(int xInit, int yInit, int xFinal, int yFinal) {
-        return this.findPiece(xInit, yInit).move(xFinal, yFinal);
+        if(this.isPieceHere(xInit, yInit))
+            return this.findPiece(xInit, yInit).move(xFinal, yFinal);
+        return false;
     }
     
     @Override

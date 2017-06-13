@@ -1,7 +1,5 @@
 package model;
 
-import model.Pieces;
-
 /**
  * @author francoise.perrin
  * 
@@ -28,28 +26,20 @@ public  class PieceIHM  implements PieceIHMs {
 				+ getX() + ", y=" + getY() + "]";
 	}
 
-
-
 	@Override
 	public int getX() {
 		return piece.getX();
 	}
-
-
 
 	@Override
 	public int getY() {
 		return piece.getY();
 	}
 
-
-
 	@Override
 	public String getNamePiece() {
 		return piece.getName();
 	}
-
-
 
 	@Override
 	public Couleur getCouleur() {
