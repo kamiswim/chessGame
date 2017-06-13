@@ -34,23 +34,23 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 	 * et une partie variable implémentée dans les classes dérivées
 	 */
 
+        @Override
 	final public boolean move(Coord initCoord, Coord finalCoord) {
-		boolean ret = false;
-		String promotionType = null; 
+            boolean ret = false;
+            String promotionType = null; 
 
-		// si c'est bien au tour du joueur courant de jouer
-		if (this.isPlayerOK(initCoord)) {
+            // si c'est bien au tour du joueur courant de jouer
+            if (this.isPlayerOK(initCoord)) {
 
-			// Déplacement métier
-			ret = this.moveModel(initCoord, finalCoord);	 
+                // Déplacement métier
+                ret = this.moveModel(initCoord, finalCoord); 
 
-			// Actions différentes selon les types de controleur
-			if (ret) {	
-				this.endMove(initCoord, finalCoord, promotionType);
-			}
-
-		}
-		return ret;
+                // Actions différentes selon les types de controleur
+                if (ret) {	
+                    this.endMove(initCoord, finalCoord, promotionType);
+                }
+            }
+            return ret;
 	}
 
 	/* (non-Javadoc)
@@ -60,7 +60,8 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 	 * tente de déplacer est bien celle du jeu courant
 	 * la vue se servira de cette information pour empêcher tout déplacement sur le damier
 	 */
-	public abstract boolean isPlayerOK(Coord initCoord) ;
+        @Override
+	public abstract boolean isPlayerOK(Coord initCoord);
 
 	// Déplacement métier
 	protected  boolean moveModel(Coord initCoord, Coord finalCoord)  {	
@@ -70,16 +71,19 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 	protected abstract void endMove(Coord initCoord, Coord finalCoord, String promotionType) ;
 
 
+        @Override
 	public boolean isEnd(){
 		return this.chessGame.isEnd();		
 	}
 
+        @Override
 	public String getMessage() {
 		String ret = null;		 
 		ret = this.chessGame.getMessage();	 
 		return ret;
 	}
 
+        @Override
 	public String toString() {
 		return this.chessGame.toString();
 	}

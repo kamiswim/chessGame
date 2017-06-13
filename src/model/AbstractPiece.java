@@ -13,11 +13,19 @@ public abstract class AbstractPiece implements Pieces{
     
     private Couleur couleur;
     private Coord coord;
+    private boolean moved;
+
     
     public AbstractPiece(Couleur couleur, Coord coord) {
         this.couleur = couleur;
         this.coord = coord;
+        this.moved = false;
     }
+    
+    public boolean hasMoved(){
+        return this.moved;
+    }
+
     
     @Override
     public int getX(){

@@ -30,8 +30,7 @@ public class ChessPiecesFactory {
 	 */
 	public static List<Pieces> newPieces(Couleur pieceCouleur){
 
-		List<Pieces> pieces = null;
-		pieces = new LinkedList<Pieces>();
+		List<Pieces> pieces = new LinkedList<Pieces>();
 		String initCouleur = (Couleur.BLANC == pieceCouleur ? "B_" : "N_" );
 
 		if (pieceCouleur != null){

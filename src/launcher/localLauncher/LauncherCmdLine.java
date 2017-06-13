@@ -16,17 +16,14 @@ public class LauncherCmdLine {
 	public static void main(String[] args) {		
 		
 		ChessGame model;
-		ChessGameControler controler;	
+		ChessGameControler controler;
 		ChessGameCmdLine vue;
 		
 		model = new ChessGame();	
 		controler = new ChessGameControler(model);
 		
-		new ChessGameCmdLine(controler);	
-		
 		vue = new ChessGameCmdLine(controler);
 		model.addObserver((Observer) vue);
 		vue.go();
 	}
-
 }

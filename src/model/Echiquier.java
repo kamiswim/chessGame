@@ -15,7 +15,7 @@ public class Echiquier implements BoardGames{
     
     private Jeu jeu_noir;
     private Jeu jeu_blanc;
-    private Jeu jeux[];
+    private Jeu[] jeux;
     private int jeu_courrant;
     private String message;
 
@@ -23,10 +23,11 @@ public class Echiquier implements BoardGames{
         this.jeu_blanc = new Jeu(Couleur.BLANC);
         this.jeu_noir = new Jeu(Couleur.NOIR);
 
-        this.jeux[0] = this.jeu_blanc;
-        this.jeux[1] = this.jeu_noir;
+        jeux = new Jeu[2];
+        jeux[0] = jeu_blanc;
+        jeux[1] = jeu_noir;
                 
-        this.jeu_courrant = 0;
+        jeu_courrant = 0;
     }
 
     @Override
@@ -48,13 +49,8 @@ public class Echiquier implements BoardGames{
         this.jeu_courrant %= 2;
     }
     
-    public static void main(String args[]){
-        Echiquier e = new Echiquier();
-        System.out.println(e);
-    }
-    
     public boolean isMoveOk(int xInit, int yInit, int xFinal, int yFinal){
-        boolean fin = Coord.coordonnees_valides(xFinal, yFinal) && xInit != xFinal && yInit != yFinal;
+        boolean fin = Coord.coordonnees_valides(xFinal, yFinal) && (xInit != xFinal || yInit != yFinal);
         boolean deplacement = jeux[jeu_courrant].isMoveOk(xInit, yInit, xFinal, yFinal, false, false);
         
         return fin && deplacement;
@@ -77,7 +73,7 @@ public class Echiquier implements BoardGames{
 
     @Override
     public boolean isEnd() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
 
     @Override
@@ -88,5 +84,11 @@ public class Echiquier implements BoardGames{
     @Override
     public Couleur getPieceColor(int x, int y) {
         return jeux[jeu_courrant].getPieceColor(x, y);
+    }
+
+    public static void main(String args[]){
+        Echiquier e = new Echiquier();
+        System.out.println(e);
+        System.out.println(e.isMoveOk(0, 6, 0, 5));
     }
 }

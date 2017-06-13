@@ -27,24 +27,22 @@ public class ChessGame extends Observable implements BoardGames{
 	 * Cree une instance de la classe Echiquier
 	 * et notifie ses observateurs
 	 */
-	public ChessGame() {
-		super();
-		this.echiquier = new Echiquier();
-		this.notifyObservers(echiquier.getPiecesIHM()); 
+	public ChessGame(){
+            super();
+            this.echiquier = new Echiquier();
+            this.notifyObservers(echiquier.getPiecesIHM());
 	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {
-		String st = "";
-		st += "\n" + echiquier.getMessage() + "\n";
-		st = echiquier.toString();	
-		return  st;
+            String st = "";
+            st += "\n" + echiquier.getMessage() + "\n";
+            st = echiquier.toString();	
+            return  st;
 	}
-
 
 	/**
 	 * Permet de deplacer une piece connaissant ses coordonnees initiales vers ses
@@ -57,47 +55,49 @@ public class ChessGame extends Observable implements BoardGames{
 	 * @return OK si deplacement OK
 	 * si OK, permet l'alternance des joueurs
 	 */
+        @Override
 	public boolean move (int xInit, int yInit, int xFinal, int yFinal){
-		boolean ret = false; 
+            boolean ret = false;
 
-		ret = echiquier.isMoveOk(xInit, yInit, xFinal, yFinal);
-		if (ret){
-			ret = echiquier.move(xInit, yInit, xFinal, yFinal);
-		}
-		if (ret){
-			echiquier.switchJoueur();
-		}		
-		
-		this.notifyObservers(echiquier.getPiecesIHM()); 
-		return ret;	
+            ret = echiquier.isMoveOk(xInit, yInit, xFinal, yFinal);
+            if (ret){
+                ret = echiquier.move(xInit, yInit, xFinal, yFinal);
+            }
+            if (ret){
+                echiquier.switchJoueur();
+            }		
+
+            this.notifyObservers(echiquier.getPiecesIHM()); 
+            return ret;
 	}
 
+        @Override
 	public boolean isEnd(){
-		return echiquier.isEnd();		
+            return echiquier.isEnd();		
 	}
 
+        @Override
 	public String getMessage() {
-		return echiquier.getMessage();
+            return echiquier.getMessage();
 	}
 
-
+        @Override
 	public Couleur getColorCurrentPlayer(){		
-		return echiquier.getColorCurrentPlayer();		
-	}	
-
-	public Couleur getPieceColor(int x, int y){
-		return echiquier.getPieceColor(x, y);
+            return echiquier.getColorCurrentPlayer();		
 	}
 
-	
+        @Override
+	public Couleur getPieceColor(int x, int y){
+            return echiquier.getPieceColor(x, y);
+	}
 
 	/* (non-Javadoc)
 	 * @see java.util.Observable#notifyObservers(java.lang.Object)
 	 */
 	@Override
-	public void	notifyObservers(Object arg) {
-		super.setChanged();
-		super.notifyObservers(arg); 
+	public void notifyObservers(Object arg) {
+            super.setChanged();
+            super.notifyObservers(arg);
 	}
 
 	/* (non-Javadoc)
@@ -105,7 +105,7 @@ public class ChessGame extends Observable implements BoardGames{
 	 */
 	@Override
 	public void addObserver(Observer o){
-		super.addObserver(o);
-		this.notifyObservers(echiquier.getPiecesIHM()); 
+            super.addObserver(o);
+            this.notifyObservers(echiquier.getPiecesIHM());
 	}
 }
