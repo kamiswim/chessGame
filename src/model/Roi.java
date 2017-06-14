@@ -19,7 +19,9 @@ public class Roi extends AbstractPiece{
 
     @Override
     public boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk, boolean isCastlingPossible) {
-        boolean deplacement = abs(xFinal - this.getX()) == 1 || abs(yFinal - this.getY()) == 1;
+        boolean deplacement = abs(yFinal - this.getY()) == 1 && abs(xFinal - this.getX()) == 0 ||
+                              abs(xFinal - this.getX()) == 1 && abs(yFinal - this.getY()) == 0 ||
+                              abs(xFinal - this.getX()) == 1 && abs(yFinal - this.getY()) == 1;
         return Coord.coordonnees_valides(xFinal, yFinal) && deplacement;
     }
 

@@ -14,7 +14,7 @@ import controller.AbstractChessGameControler;
 public class ChessGameControler extends AbstractChessGameControler {
 	
 	public ChessGameControler(ChessGame chessGame) {
-		super(chessGame);
+            super(chessGame);
 	}
 
 	/* (non-Javadoc)
@@ -26,7 +26,7 @@ public class ChessGameControler extends AbstractChessGameControler {
 	 */
 	@Override
 	public boolean isPlayerOK(Coord initCoord) {
-		return this.getColorCurrentPlayer() == this.getPieceColor(initCoord);
+            return this.getColorCurrentPlayer() == this.getPieceColor(initCoord);
 	}
 	
 	/* (non-Javadoc)

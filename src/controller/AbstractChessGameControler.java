@@ -33,7 +33,6 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 	 * avec une partie commune implémentée dans cette classe
 	 * et une partie variable implémentée dans les classes dérivées
 	 */
-
         @Override
 	final public boolean move(Coord initCoord, Coord finalCoord) {
             boolean ret = false;
@@ -46,7 +45,7 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
                 ret = this.moveModel(initCoord, finalCoord); 
 
                 // Actions différentes selon les types de controleur
-                if (ret) {	
+                if (ret) {
                     this.endMove(initCoord, finalCoord, promotionType);
                 }
             }
@@ -64,8 +63,8 @@ public abstract class AbstractChessGameControler implements ChessGameControlers 
 	public abstract boolean isPlayerOK(Coord initCoord);
 
 	// Déplacement métier
-	protected  boolean moveModel(Coord initCoord, Coord finalCoord)  {	
-		return chessGame.move(initCoord.x, initCoord.y, finalCoord.x, finalCoord.y);	
+	protected  boolean moveModel(Coord initCoord, Coord finalCoord) {
+		return chessGame.move(initCoord.x, initCoord.y, finalCoord.x, finalCoord.y);
 	}
 
 	protected abstract void endMove(Coord initCoord, Coord finalCoord, String promotionType) ;

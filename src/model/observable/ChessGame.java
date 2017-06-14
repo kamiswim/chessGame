@@ -1,12 +1,10 @@
 package model.observable;
 
 
-import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import model.BoardGames;
-import model.Coord;
 import model.Couleur;
 import model.Echiquier;
 
@@ -65,9 +63,9 @@ public class ChessGame extends Observable implements BoardGames{
             }
             if (ret){
                 echiquier.switchJoueur();
-            }		
+            }
 
-            this.notifyObservers(echiquier.getPiecesIHM()); 
+            this.notifyObservers(echiquier.getPiecesIHM());
             return ret;
 	}
 
@@ -83,7 +81,7 @@ public class ChessGame extends Observable implements BoardGames{
 
         @Override
 	public Couleur getColorCurrentPlayer(){		
-            return echiquier.getColorCurrentPlayer();		
+            return echiquier.getColorCurrentPlayer();	
 	}
 
         @Override

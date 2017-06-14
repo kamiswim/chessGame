@@ -25,7 +25,6 @@ public abstract class AbstractPiece implements Pieces{
     public boolean hasMoved(){
         return this.moved;
     }
-
     
     @Override
     public int getX(){
@@ -52,6 +51,7 @@ public abstract class AbstractPiece implements Pieces{
         this.coord.x = xFinal;
         this.coord.y = yFinal;
         
+        this.moved = true;
         return true;
     }
     
@@ -67,7 +67,7 @@ public abstract class AbstractPiece implements Pieces{
     public abstract boolean isMoveOk(int xFinal, int yFinal, boolean isCatchOk, boolean isCastlingPossible);
     
     public static void main(String args[]){
-        Pion pion = new Pion(Couleur.BLANC, new Coord(4,5));
+        /*Pion pion = new Pion(Couleur.BLANC, new Coord(4,5));
         System.out.println(pion.isMoveOk(4, 4, true, true));
         System.out.println(pion.isMoveOk(4, 3, true, true)); // not ok (2 forward)
         System.out.println(pion.isMoveOk(4, 6, true, true)); // not ok (going back)
@@ -102,7 +102,7 @@ public abstract class AbstractPiece implements Pieces{
         System.out.println(cavalier.isMoveOk(3, 7, true, true));
         System.out.println(cavalier.isMoveOk(5, 7, true, true));
         System.out.println(cavalier.isMoveOk(7, 5, true, true)); // not ok (ligne droite)
-        System.out.println(cavalier.isMoveOk(4, 5, true, true)); // sur place
+        System.out.println(cavalier.isMoveOk(4, 5, true, true)); // sur place*/
         
         Pieces roi = new Roi(Couleur.BLANC, new Coord(4,5));
         System.out.println(roi.isMoveOk(3, 4, true, true));
@@ -113,12 +113,15 @@ public abstract class AbstractPiece implements Pieces{
         System.out.println(roi.isMoveOk(3, 6, true, true));
         System.out.println(roi.isMoveOk(4, 6, true, true));
         System.out.println(roi.isMoveOk(5, 6, true, true));
+        System.out.println(roi.isMoveOk(6, 5, true, true)); // Not ok
+        System.out.println(roi.isMoveOk(4, 3, true, true)); // Not ok
+        System.out.println(roi.isMoveOk(6, 3, true, true)); // Not ok
         System.out.println(roi.isMoveOk(4, 5, true, true)); // not ok (sur place)
         
-        Pieces reine = new Reine(Couleur.BLANC, new Coord(4,5));
+        /*Pieces reine = new Reine(Couleur.BLANC, new Coord(4,5));
         System.out.println(reine.isMoveOk(2, 5, true, true));
         System.out.println(reine.isMoveOk(2, 3, true, true));
         System.out.println(reine.isMoveOk(9, 5, true, true)); // not ok (outside of board)
-        System.out.println(reine.isMoveOk(4, 5, true, true)); // not ok (sur place)
+        System.out.println(reine.isMoveOk(4, 5, true, true)); // not ok (sur place)*/
     }
 }

@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/model/Echiquier.java</file>
-            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/model/AbstractPiece.java</file>
-            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/model/Jeu.java</file>
-            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/model/BoardGames.java</file>
+            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/launcher/localLauncher/LauncherGUI.java</file>
+            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/vue/ChessGameGUI.java</file>
+            <file>file:/C:/Users/JeanClode/Program/Java/ChessGame/src/model/observable/ChessGame.java</file>
         </group>
     </open-files>
 </project-private>
