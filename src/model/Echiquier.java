@@ -130,11 +130,27 @@ public class Echiquier implements BoardGames{
         return false;
     }
     
+    private boolean canCapture(int xFinal, int yFinal){
+        if(jeux[jeu_courrant].isPieceHere(xFinal, yFinal))
+            return jeux[jeu_courrant].getCouleur() != jeux[jeu_courrant].getPieceColor(xFinal, yFinal);
+        else if(jeux[(jeu_courrant + 1)%2].isPieceHere(xFinal, yFinal))
+            return jeux[jeu_courrant].getCouleur() != jeux[(jeu_courrant+1)%2].getPieceColor(xFinal, yFinal);
+        
+        // si case vide
+        return true;
+    }
+    
     public boolean isMoveOk(int xInit, int yInit, int xFinal, int yFinal){
         boolean fin = Coord.coordonnees_valides(xFinal, yFinal) && (xInit != xFinal || yInit != yFinal);
         boolean deplacement = jeux[jeu_courrant].isMoveOk(xInit, yInit, xFinal, yFinal, false, false);
         
-        return fin && deplacement && !this.collision(xInit, xFinal, yInit, yFinal);
+        boolean colcapture;
+        if(!this.collision(xInit, xFinal, yInit, yFinal))
+            colcapture = canCapture(xFinal, yFinal);
+        else
+            colcapture = false;
+
+        return fin && deplacement && colcapture;
     }
 
     @Override
