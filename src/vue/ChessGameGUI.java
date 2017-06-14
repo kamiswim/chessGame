@@ -108,7 +108,6 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
 
             if (c instanceof JLabel){
                 Container parent = c.getParent();
-                System.out.println("parent"+parent);
                 parent.remove(0);
                 parent.add(chessPiece);
             } else {
@@ -118,6 +117,7 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
 
             chessPiece.setVisible(true);
         } else {
+            chessPiece.setVisible(false);
             chessPiece.setLocation(origin.x, origin.y);
         }
     }
@@ -143,6 +143,7 @@ public class ChessGameGUI extends JFrame implements MouseListener, MouseMotionLi
         for(Component c : chessBoard.getComponents()){
             pan = (JPanel) c;
             pan.removeAll();
+            pan.revalidate();
         }
     }
 
